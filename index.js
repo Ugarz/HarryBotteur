@@ -2,29 +2,8 @@ const Discord = require('discord.js')
 const bot = new Discord.Client()
 const Google = require('./cmds/google.js')
 const Ping = require('./cmds/ping.js')
+const Profile = require('./cmds/profile.js')
 const config = require('./config.json')
-
-// Bnet client
-const Battlenet = require('battlenet.js')
-const bnetClient = new Battlenet(config.bnet.key, {
-    region: 'eu',
-    locale: 'fr_FR'
-});
-const wClient = bnetClient.warcraft;
-
-var fields = ['feed', 'guild'];
-wClient.getCharacter('Hyjal', 'Carbø', fields, function(err, response) {
-    if (err) {
-        throw err;
-    }
-    console.log(response)
-});
-
-// wClient.getCharacter('Hyjal', 'Carbø', ['feed', 'guild'], (datas) => {
-//     console.log('\nDATAS', datas)
-// })
-
-
 
 // Login bot
 bot.login(config.token)
@@ -41,7 +20,7 @@ bot.on('ready', () => {
 
 // When receive a message
 bot.on('message', (message) => {
-    let commandUsed = Google.parse(message) || Ping.parse(message)
+    let commandUsed = Google.parse(message) || Ping.parse(message) || Profile.parse(message)
     Google.parse(message)
 })
 
