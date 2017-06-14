@@ -2,9 +2,9 @@ const Discord = require('discord.js')
 const bot = new Discord.Client()
 const Google = require('./cmds/google.js')
 const Ping = require('./cmds/ping.js')
-
+const config = require('./config.json')
 // Login bot
-bot.login('MjgzMTY3NTIzNzgyNzg3MDcy.DB8Xig.BasDJKFfWAmIS8WLuinCgaHs5tw')
+bot.login(config.token)
 
 
 // Set avatar when ready
