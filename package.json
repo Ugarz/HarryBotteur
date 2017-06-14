@@ -10,6 +10,7 @@
   "author": "Ugo Arzur <ugo.arzur@gmail.com> (http://github/Ugarz)",
   "license": "ISC",
   "dependencies": {
+    "battlenet.js": "^2.0.1",
     "discord.js": "^11.1.0"
   }
 }

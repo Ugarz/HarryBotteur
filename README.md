@@ -3,3 +3,5 @@
 [Tuto](https://youtu.be/errnVwm_3mI)
 
 [DiscordJS](https://discord.js.org/#/docs/main/stable/general/welcome)
+
+[battlenet.js](https://www.npmjs.com/package/battlenet.js)
