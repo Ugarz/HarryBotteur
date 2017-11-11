@@ -7,10 +7,10 @@ module.exports = class Google extends Command {
     static action (message){
         console.log('action match', message)
         let args = message.content.split(' ')
-        // delte first element
+        // delete first element
         args.shift()
         // add elements
         message.delete()
-        message.reply('https://www.google.fr/#q=' + args.join('%20'))
+        message.reply('https://www.google.fr/search?source=' + args.join('%20'))
     }
 }

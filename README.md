@@ -3,3 +3,8 @@
 [Tuto](https://youtu.be/errnVwm_3mI)
 
 [DiscordJS](https://discord.js.org/#/docs/main/stable/general/welcome)
+[Discordapi Permissions](https://discordapi.com/permissions.html)
+
+Guild = Server
+Channel = channel
+User = utilisateur
