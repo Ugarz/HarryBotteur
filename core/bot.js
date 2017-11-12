@@ -5,6 +5,10 @@ const bot = new Discord.Client({
 })
 const embed = new Discord.RichEmbed()
 
+const createEmbed = (dataToEmbed) => {
+  return new Discord.RichEmbed(dataToEmbed)
+}
+
 const config = require('../config.json')
 
 // Login bot
@@ -14,5 +18,6 @@ bot.login(config.token)
 module.exports = {
   bot,
   embed,
-  config
+  config,
+  createEmbed
 }

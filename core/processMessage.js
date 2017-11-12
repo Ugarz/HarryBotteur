@@ -27,10 +27,10 @@ function processMessage(message){
       return message.channel.sendEmbed(embed);
   };
   if(command === `${config.prefix}ping`){
-    return message.reply('pong ! 😂')
+    return message.reply('pong ! :ping_pong: :laughing:')
   };
   if(command === `${config.prefix}help`){
-    return utils.richEmbed(message)
+    return utils.helpEmbed(message)
   };
 
 }
