@@ -1,15 +1,25 @@
-const { bot } = require('./core/bot')
+// CORE
+const messageControl = require('./core/policies')
+const { bot, config } = require('./core/bot')
+const processMessage = require('./core/processMessage')
 
-const Google = require('./cmds/google.js')
-const Ping = require('./cmds/ping.js')
+// CMDS
+const {
+  setPresence,
+  replyPong,
+  generateInvite } = require('./cmds/actions')
+
+// const Google = require('./cmds/old/google.js')
+// const Ping = require('./cmds/old/ping.js')
 const utils = require('./core/utils')
 
 
 // Set avatar when ready
-bot.on('ready', () => {
-  console.log('I am ready!');
-  // bot.user.setGame('Overwatch').catch(console.error)
-  utils.setPresence(bot, 'ready', {game: {name: 'être trader !', type: 0 }})
+bot.on('ready', async () => {
+  console.log(`${bot.user.username} ready !`);
+  setPresence(bot, config.presence.game)
+  generateInvite(bot, ['ADMINISTRATOR'])
+
   // bot.user.setAvatar('./img/harrybotteur.jpg')
   //     .then((payload) => console.log('Avatar mis avec succès', payload))
   //     .catch(console.error)
@@ -17,18 +27,18 @@ bot.on('ready', () => {
 
 
 // When receive a message
-bot.on('message', (message) => {
-    if(message.content == '!help'){
-      console.log('Demande d\'aide');
-      return utils.richEmbed(message)
-    }
-    let commandUsed = Google.parse(message) || Ping.parse(message)
-    Google.parse(message)
+bot.on('message', async (message) => {
+  const messageControlled = await messageControl(message);
+  if(messageControlled){
+    console.log('Message okay', messageControlled.content)
+    return processMessage(message)
+  }
 })
 
 // Say hi to new comers
 bot.on('guildMemberAdd', (newMember) => {
-    newMember.createDM()
+  console.log('New Member', newMember)
+  return newMember.createDM()
         .then((channel) => channel.send(`Bienvenue sur le serveur ${newMember.displayName}!`))
         .catch(console.error)
 })

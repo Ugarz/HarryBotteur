@@ -5,6 +5,8 @@
 [DiscordJS](https://discord.js.org/#/docs/main/stable/general/welcome)
 [Discordapi Permissions](https://discordapi.com/permissions.html)
 
+[Discord bot p2](https://www.youtube.com/watch?v=dNKWTyhbE1w&list=PLVBD9pLCy6oogSgJuUQzE-99_-voOdSng&index=2)
+
 Guild = Server
 Channel = channel
-User = utilisateur
+User = user

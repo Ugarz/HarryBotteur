@@ -5,7 +5,6 @@ module.exports = class Google extends Command {
         return message.content.startsWith('!google')
     }
     static action (message){
-        console.log('action match', message)
         let args = message.content.split(' ')
         // delete first element
         args.shift()
