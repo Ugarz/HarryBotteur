@@ -12,23 +12,14 @@ const {
   setPresence,
   replyPong,
   generateInvite } = require('./cmds/actions')
-
-// const Google = require('./cmds/old/google.js')
-// const Ping = require('./cmds/old/ping.js')
 const utils = require('./core/utils')
-
 
 // Set avatar when ready
 bot.on('ready', async () => {
   console.log(`${bot.user.username} ready !`);
   setPresence(bot, config.presence)
-  generateInvite(bot, ['ADMINISTRATOR'])
-
-  // bot.user.setAvatar('./img/harrybotteur.jpg')
-  //     .then((payload) => console.log('Avatar mis avec succès', payload))
-  //     .catch(console.error)
+  // generateInvite(bot, ['ADMINISTRATOR'])
 })
-
 
 // When receive a message
 bot.on('message', async (message) => {
