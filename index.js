@@ -1,3 +1,8 @@
+// ENV
+require('dotenv').config()
+console.log(process.env.PORT);
+console.log(process.env.TOKEN);
+
 // CORE
 const messageControl = require('./core/policies')
 const { bot, config } = require('./core/bot')

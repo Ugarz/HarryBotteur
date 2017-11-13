@@ -9,7 +9,7 @@ const createEmbed = (dataToEmbed) => {
   return new Discord.RichEmbed(dataToEmbed)
 }
 
-const config = require('../config.json')
+const config = require('../config.js')
 
 // Login bot
 bot.login(config.token)
