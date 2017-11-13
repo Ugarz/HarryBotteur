@@ -9,10 +9,8 @@ TOKEN=EFZOefij04ZEF234?ZEifjozeif2jzef.fzeuhfozf
 ## Guidelines
 The `master` branch is the production. A hook has been set to auto-deploy on a `master` push. All development feature branch should be called `feature/something_cool_to_build`.
 
-> Notes
-> - Guild = Server
-> - Channel = channel
-> - User = user
+### Any issue or enhancement ?
+Please refer to [the issue tracker](https://github.com/Ugarz/harrybotteur/issues) to see if it has been alerted / resolved.
 
 #### Looking for some refs / help
 - [Tuto](https://youtu.be/errnVwm_3mI)
