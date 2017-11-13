@@ -1,7 +1,7 @@
 // ENV
 require('dotenv').config()
-console.log(process.env.PORT);
-console.log(process.env.TOKEN);
+console.log(process.env.port);
+console.log(process.env.token);
 
 // CORE
 const messageControl = require('./core/policies')
