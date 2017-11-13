@@ -4,6 +4,6 @@ module.exports = {
   token,
   "prefix": "!",
   "presence": {
-    "game": "Development web !"
+    "game": "Overwatch !"
   }
 }

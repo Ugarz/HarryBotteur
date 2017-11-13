@@ -17,7 +17,7 @@ const utils = require('./core/utils')
 // Set avatar when ready
 bot.on('ready', async () => {
   console.log(`${bot.user.username} ready !`);
-  setPresence(bot, config.presence)
+  setPresence(bot, config.presence.game)
   // generateInvite(bot, ['ADMINISTRATOR'])
 })
 
