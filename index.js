@@ -1,7 +1,6 @@
 // ENV
 require('dotenv').config()
-console.log(process.env.port);
-console.log(process.env.token);
+console.log(process.env.TOKEN ? 'The TOKEN has been set correctly' : 'oops no TOKEN set');
 
 // CORE
 const messageControl = require('./core/policies')
