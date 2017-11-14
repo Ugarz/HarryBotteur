@@ -1,1 +1,1 @@
-web: npm start
+proc: npm start
