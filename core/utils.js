@@ -2,12 +2,12 @@ const path = require('path')
 const { embed, createEmbed } = require('./bot')
 
 function setPresence(bot, content){
-  console.log('set Presence okay');
+  console.log('Seting Presence..');
   return bot.user.setPresence(content)
 }
 
 function helpEmbed(message){
-  console.log('Emission d\'une aide sur le')
+  console.log('Embedding..')
   embed
     .setColor('#bada55')
     .setDescription('Ceci est une liste de commande pour vous aider à savoir quoi et comment faire avec ce bot.')

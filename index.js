@@ -7,11 +7,11 @@ const messageControl = require('./core/policies')
 const { bot, config } = require('./core/bot')
 const processMessage = require('./core/processMessage')
 
-// CMDS
+// ACTIONS
 const {
   setPresence,
   replyPong,
-  generateInvite } = require('./cmds/actions')
+  generateInvite } = require('./core/actions/index')
 const utils = require('./core/utils')
 
 // Set avatar when ready

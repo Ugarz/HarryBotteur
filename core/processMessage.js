@@ -1,5 +1,5 @@
 const { config, embed } = require('./bot')
-const { actions } = require('../cmds/actions')
+const { actions } = require('./actions/index')
 const utils = require('./utils')
 
 function processMessage(message){
@@ -30,6 +30,10 @@ function processMessage(message){
     return message.reply('pong ! :ping_pong: :laughing:')
   };
   if(command === `${config.prefix}help`){
+    return utils.helpEmbed(message)
+  };
+  if(command === `${config.prefix}cal`){
+    console.log('Calendar triggered')
     return utils.helpEmbed(message)
   };
 

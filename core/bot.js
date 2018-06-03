@@ -1,5 +1,8 @@
 const Discord = require('discord.js')
 
+const config = require('../config.js')
+
+console.log('Creating the bot')
 const bot = new Discord.Client({
   disableEveryone: true
 })
@@ -9,7 +12,6 @@ const createEmbed = (dataToEmbed) => {
   return new Discord.RichEmbed(dataToEmbed)
 }
 
-const config = require('../config.js')
 
 // Login bot
 bot.login(config.token)
