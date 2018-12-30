@@ -6,13 +6,7 @@ console.log(process.env.TOKEN ? 'The TOKEN has been set correctly' : 'oops no TO
 const messageControl = require('./core/policies')
 const { bot, config } = require('./core/bot')
 const processMessage = require('./core/processMessage')
-
-// ACTIONS
-const {
-  setPresence,
-  replyPong,
-  generateInvite } = require('./core/actions/index')
-const utils = require('./core/utils')
+const setPresence = require('./core/actions/setPresence')
 
 // Set avatar when ready
 bot.on('ready', async () => {
@@ -23,10 +17,16 @@ bot.on('ready', async () => {
 
 // When receive a message
 bot.on('message', async (message) => {
-  const messageControlled = await messageControl(message);
-  if(messageControlled){
-    console.log('Message okay', messageControlled.content)
-    return processMessage(message)
+  try {
+    const { options, controlledMessage } = await messageControl(message);
+    console.log('options', options)
+    console.log('controlledMessage', controlledMessage)
+    if (options.controls) {
+      console.log('Message controlled okay', controlledMessage)
+      return processMessage(controlledMessage, options)
+    }
+  } catch (e){
+    console.log('Youps', e.stack || e)
   }
 })
 

@@ -1,5 +1,9 @@
+/**
+ * Check if this is a direct message wich is not allowed
+ * @param {object} message 
+ */
 const checkIfDirectMessage = message => new Promise((resolve, reject) => {
-  if(message.channel.type === 'dm'){
+  if (message.channel.type === 'dm') {
     console.log('DM message');
     const error = new Error()
     error.message = 'Oops, seems to be a direct message. Not allowed !'

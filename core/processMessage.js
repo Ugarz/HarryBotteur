@@ -1,42 +1,29 @@
-const { config, embed } = require('./bot')
-const { actions } = require('./actions/index')
-const utils = require('./utils')
+const { config } = require('./bot')
+const actions = require('./actions/index')
 
-function processMessage(message){
-  const fullAuthorName = `${message.author.username}#${message.author.discriminator}`;
-  console.log('\n\t Processing message');
-  let messageArray = message.content.split(' ')
-  console.log('Message Array', messageArray);
-  const command = messageArray[0];
-  console.log('The command is :', command);
-  messageArray = messageArray.slice(1)
+/**
+ * Process the order
+ * @param {object} controlledMessage 
+ * @param {options} options 
+ */
+function processMessage(controlledMessage, options) {
+  // console.log('controlledMessage', controlledMessage)
+  // const fullAuthorName = `${controlledMessage.author.username}#${controlledMessage.author.discriminator}`;
 
-  if(!command.startsWith(config.prefix)){
-    console.log('What is the magic word , dummie ?')
+  if (options.prefix !== config.prefix) {
+    console.log(options.prefix)
+    console.log(config.prefix)
+    console.log('What\'s the magic word, you dummie ?')
     return;
   };
-  if(command === `${config.prefix}userinfo`){
-    // #98BAD7 light blue
-    embed
-      .setAuthor(message.author.username)
-      .setDescription('A super user')
-      .setColor("#9B59B6")
-      .addField('Full Username', fullAuthorName)
-      .addField('Id User', `${message.author.id}`)
-      .addField('Created at', `${message.author.createdAt}`)
-      return message.channel.sendEmbed(embed);
-  };
-  if(command === `${config.prefix}ping`){
-    return message.reply('pong ! :ping_pong: :laughing:')
-  };
-  if(command === `${config.prefix}help`){
-    return utils.helpEmbed(message)
-  };
-  if(command === `${config.prefix}cal`){
-    console.log('Calendar triggered')
-    return utils.helpEmbed(message)
-  };
 
+  try {
+    console.log(`Prefix found, launching script "${options.command}"`)
+    console.log('MENACE', actions[options.command])
+    return actions[options.command](message);
+  } catch(e) {
+    return controlledMessage.reply('No script found for this command, are you sure of the command name ?')
+  }
 }
 
 module.exports = processMessage;
