@@ -6,7 +6,6 @@
  */
 async function generateInvite(bot, roles){
   const generatedInvite = await bot.generateInvite(roles);
-  console.log('\n > Invitation generated', generatedInvite);
   return generateInvite;
 }
 module.exports = generateInvite;

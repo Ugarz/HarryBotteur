@@ -1,10 +1,11 @@
 {
-  "name": "nox-plans",
-  "version": "1.0.0",
+  "name": "nox-jarvis",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "./node_modules/.bin/nodemon index.js"
+    "start": "NODE_ENV=production node index.js",
+    "dev": "./node_modules/.bin/nodemon NODE_ENV=dev index.js"
   },
   "engines": {
     "node": "10.14.2",
@@ -14,8 +15,9 @@
   "author": "Ugo Arzur <ugo.arzur@gmail.com> (http://github/Ugarz)",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.18.0",
     "discord.js": "11.4.2",
-    "dotenv": "6.2.0",
+    "dotenv": "^6.2.0",
     "nodemon": "1.18.9"
   }
 }

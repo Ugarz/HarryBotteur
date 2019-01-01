@@ -1,6 +1,7 @@
 // ENV
 require('dotenv').config()
-console.log(process.env.TOKEN ? 'The TOKEN has been set correctly' : 'oops no TOKEN set');
+console.log(process.env.NODE_ENV === 'production' ? 'PROD mod' : 'DEV mod');
+console.log(process.env.TOKEN ? 'The TOKEN has been set correctly' : 'No TOKEN set up');
 
 // CORE
 const messageControl = require('./core/policies')
@@ -18,15 +19,16 @@ bot.on('ready', async () => {
 // When receive a message
 bot.on('message', async (message) => {
   try {
-    const { options, controlledMessage } = await messageControl(message);
+    const { controlledMessage, options } = await messageControl(message);
     console.log('options', options)
     console.log('controlledMessage', controlledMessage)
-    if (options.controls) {
+    if (options && options.controls) {
       console.log('Message controlled okay', controlledMessage)
       return processMessage(controlledMessage, options)
     }
   } catch (e){
     console.log('Youps', e.stack || e)
+    throw new Error('Can not process the message')
   }
 })
 

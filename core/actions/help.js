@@ -5,4 +5,5 @@ function help(message){
         .then(sent => console.log(`Sent a reply to ${sent.author.username}`))
         .catch(console.error);
 }
+
 module.exports = help;

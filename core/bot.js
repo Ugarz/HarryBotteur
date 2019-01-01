@@ -1,7 +1,6 @@
 const Discord = require('discord.js')
 const config = require('../config.js')
 
-console.log('Creating the bot')
 const bot = new Discord.Client({
   disableEveryone: true
 })
